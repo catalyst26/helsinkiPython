@@ -39,7 +39,6 @@ def distribution(my_list):
 def main():
 
     statistics = []
-    number_of_students = 0
     sum_pts = 0
 
     while True:
@@ -51,13 +50,13 @@ def main():
         user_exam_pts, user_exercise_pts = user_input.split()
 
         sum_pts += (int(user_exam_pts) + convert_exercise_pts(int(user_exercise_pts)))
-        number_of_students += 1
+
         
         statistics.append(convert_exam_exercise_pts_to_grade(int(user_exam_pts), int(user_exercise_pts)))
     
     print("Statistics: ")
-    print(f"Points average: {average(sum_pts, number_of_students)}")
-    print(f"Pass percentage: {stats_to_percent(statistics, number_of_students)}")
+    print(f"Points average: {average(sum_pts, len(statistics))}")
+    print(f"Pass percentage: {stats_to_percent(statistics, len(statistics))}")
     print("Grade distribution: ")
     distribution(statistics)
 
